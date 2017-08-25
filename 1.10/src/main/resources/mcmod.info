@@ -1,0 +1,16 @@
+[
+{
+  "modid": "redperautosprintmod",
+  "name": "AutoSprint Mod",
+  "description": "Allows you to always sprint after pressing a keybind.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["RedPer"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
