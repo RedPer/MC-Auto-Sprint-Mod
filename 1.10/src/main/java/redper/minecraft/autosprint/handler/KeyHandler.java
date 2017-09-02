@@ -1,23 +1,37 @@
 package redper.minecraft.autosprint.handler;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraftforge.common.config.ConfigCategory;
+import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.input.Keyboard;
-import org.lwjgl.util.Color;
+import redper.minecraft.autosprint.AutoSprintMod;
 
 public class KeyHandler {
+
+    private static KeyHandler instance = new KeyHandler();
 
     private KeyBinding toggleSprintKey;
     private boolean toggled = false;
     private Minecraft mc;
     private int sprintKey;
+    private Configuration config;
+    private Property sprintProperty;
 
-    public KeyHandler() {
+    @SideOnly(Side.CLIENT)
+    private KeyHandler() {
+
+        config = AutoSprintMod.getInstance().getConfig();
+        ConfigCategory cc = config.getCategory(Configuration.CATEGORY_CLIENT);
+
+        sprintProperty = cc.get("isSprintToggled");
+        toggled = sprintProperty.getBoolean();
 
         toggleSprintKey = new KeyBinding("key.autosprint.toggle", Keyboard.KEY_R, "key.categories.movement");
         ClientRegistry.registerKeyBinding(toggleSprintKey);
@@ -27,7 +41,12 @@ public class KeyHandler {
 
     }
 
+    public static KeyHandler getInstance() {
+        return instance;
+    }
+
     @SubscribeEvent
+    @SideOnly(Side.CLIENT)
     public void onTick(ClientTickEvent event) {
 
         sprintKey = mc.gameSettings.keyBindSprint.getKeyCode();
@@ -35,6 +54,9 @@ public class KeyHandler {
         if(toggleSprintKey.isPressed()) {
 
             toggled = !toggled;
+
+            sprintProperty.set(toggled);
+            config.save();
 
             if(!toggled) {
                 KeyBinding.setKeyBindState(sprintKey, false);
@@ -48,16 +70,6 @@ public class KeyHandler {
 
     }
 
-    @SubscribeEvent
-    public void onRender(RenderGameOverlayEvent event) {
-
-        if(toggled && event.getType() == RenderGameOverlayEvent.ElementType.TEXT) {
-
-            int color = Integer.parseInt("aaffaa", 16);
-            mc.fontRendererObj.drawString("Sprint [Toggled]", 5, 5, color);
-
-        }
-
-    }
+    public boolean isToggled() { return toggled; }
 
 }

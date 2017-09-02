@@ -15,7 +15,6 @@ import redper.minecraft.autosprint.handler.KeyHandler;
 import redper.minecraft.autosprint.render.SprintRenderer;
 
 import java.io.File;
-import java.util.TreeMap;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION, acceptedMinecraftVersions = Reference.MC_VERSIONS, clientSideOnly = true, canBeDeactivated = true)
 public class AutoSprintMod {
