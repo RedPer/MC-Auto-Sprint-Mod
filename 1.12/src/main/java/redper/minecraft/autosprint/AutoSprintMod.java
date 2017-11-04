@@ -11,12 +11,13 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import redper.minecraft.autosprint.handler.KeyHandler;
 import redper.minecraft.autosprint.render.SprintRenderer;
 
 import java.io.File;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION, acceptedMinecraftVersions = Reference.MC_VERSIONS, clientSideOnly = true, canBeDeactivated = true)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION, acceptedMinecraftVersions = Reference.MC_VERSIONS, clientSideOnly = true, canBeDeactivated = false, guiFactory = Reference.GUI_CONFIG)
 public class AutoSprintMod {
 
     private Configuration config;
@@ -52,6 +53,13 @@ public class AutoSprintMod {
         prop.setRequiresWorldRestart(false);
         prop.setShowInGui(false);
 
+        prop = config.get(Configuration.CATEGORY_CLIENT, "doRememberSprint", true);
+        prop.setComment("Do Remember Sprint State after Minecraft exit.");
+        prop.setLanguageKey("config.client.remembersprint");
+        prop.setRequiresMcRestart(false);
+        prop.setRequiresWorldRestart(false);
+        prop.setShowInGui(true);
+
         prop = config.get(Configuration.CATEGORY_CLIENT, "hexTextColor", "aaffaa");
         prop.setComment("The Hex Color Of All The text displayed");
         prop.setLanguageKey("config.client.textcolor");
@@ -73,25 +81,27 @@ public class AutoSprintMod {
     }
 
     @Mod.EventHandler
+    @SideOnly(Side.CLIENT)
     public void preInit(FMLPreInitializationEvent event) {
 
         MinecraftForge.EVENT_BUS.register(this);
-
-        if(event.getSide() == Side.CLIENT) {
-            MinecraftForge.EVENT_BUS.register(KeyHandler.getInstance());
-            MinecraftForge.EVENT_BUS.register(SprintRenderer.getInstance());
-        }
+        MinecraftForge.EVENT_BUS.register(KeyHandler.getInstance());
+        MinecraftForge.EVENT_BUS.register(SprintRenderer.getInstance());
 
     }
 
     @Mod.EventHandler
+    @SideOnly(Side.CLIENT)
     public void init(FMLInitializationEvent event) {
 
     }
 
     @Mod.EventHandler
+    @SideOnly(Side.CLIENT)
     public void postInit(FMLPostInitializationEvent event) {
 
     }
+
+
 
 }

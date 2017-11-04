@@ -1,1 +1,6 @@
 key.autosprint.toggle=Toggle Sprint
+
+config.configgui.title=Auto Sprint Mod Configuration
+
+config.client.textcolor=Text Color
+config.client.remembersprint=Remember Sprint
