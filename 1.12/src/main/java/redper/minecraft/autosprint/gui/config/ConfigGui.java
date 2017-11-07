@@ -24,8 +24,6 @@ public class ConfigGui extends GuiConfig {
 
         elements.addAll(new ConfigElement(AutoSprintMod.getInstance().getConfig().getCategory(Configuration.CATEGORY_CLIENT)).getChildElements());
 
-        //elements.add(null);
-
         return elements;
     }
 

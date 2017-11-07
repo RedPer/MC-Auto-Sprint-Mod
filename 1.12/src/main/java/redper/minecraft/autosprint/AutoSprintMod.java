@@ -17,7 +17,7 @@ import redper.minecraft.autosprint.render.SprintRenderer;
 
 import java.io.File;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION, acceptedMinecraftVersions = Reference.MC_VERSIONS, clientSideOnly = true, canBeDeactivated = false, guiFactory = Reference.GUI_CONFIG)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION, acceptedMinecraftVersions = Reference.MC_VERSIONS, clientSideOnly = true, canBeDeactivated = false, guiFactory = Reference.GUI_FACTORY)
 public class AutoSprintMod {
 
     private Configuration config;
@@ -63,6 +63,20 @@ public class AutoSprintMod {
         prop = config.get(Configuration.CATEGORY_CLIENT, "hexTextColor", "aaffaa");
         prop.setComment("The Hex Color Of All The text displayed");
         prop.setLanguageKey("config.client.textcolor");
+        prop.setRequiresMcRestart(false);
+        prop.setRequiresWorldRestart(false);
+        prop.setShowInGui(true);
+
+        prop = config.get(Configuration.CATEGORY_CLIENT, "useTextBgr", true);
+        prop.setComment("Determines if some background is shown under the text");
+        prop.setLanguageKey("config.client.textbackground");
+        prop.setRequiresMcRestart(false);
+        prop.setRequiresWorldRestart(false);
+        prop.setShowInGui(true);
+
+        prop = config.get(Configuration.CATEGORY_CLIENT, "backgroundColor", "172331");
+        prop.setComment("Color of the background under the text");
+        prop.setLanguageKey("config.client.backroundcolor");
         prop.setRequiresMcRestart(false);
         prop.setRequiresWorldRestart(false);
         prop.setShowInGui(true);

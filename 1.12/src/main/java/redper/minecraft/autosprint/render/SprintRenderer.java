@@ -61,10 +61,12 @@ public class SprintRenderer extends Gui {
 
         String s = "Sprint [Toggled]";
 
+        Property backgroundProperty = configCategory.get("useTextBgr");
+        Property backgroundColorProperty = configCategory.get("backgroundColor");
 
-        int backgroundColorWA = Color.decode("0x172331").getRGB();
+        int backgroundColorWA = Color.decode("0x" + backgroundColorProperty.getString()).getRGB();
         int backgroundColor = (backgroundColorWA & 0x00ffffff) | (50 << 24);
-        RenderUtils.renderString(s, color, backgroundColor, 5, 5, true);
+        RenderUtils.renderString(s, color, backgroundColor, 5, 5, backgroundProperty.getBoolean());
 
     }
 

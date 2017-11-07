@@ -19,7 +19,7 @@ public class RenderUtils {
         int sw = mc.fontRenderer.getStringWidth(text);
 
         if(background)
-            Gui.drawRect(x - 2, y - 2, sw + 6, h + 6, backgroundColor);
+            Gui.drawRect(x - 1, y - 1, sw + 5, h + 5, backgroundColor);
         mc.fontRenderer.drawString(text, x, y, color);
 
     }
@@ -30,7 +30,7 @@ public class RenderUtils {
         int sw = mc.fontRenderer.getStringWidth(text);
 
         if(background)
-            Gui.drawRect(x - 2, y - 2, sw + 6, h + 6, backgroundColor.getRGB());
+            Gui.drawRect(x - 1, y - 1, sw + 5, h + 5, backgroundColor.getRGB());
         mc.fontRenderer.drawString(text, x, y, color.getRGB());
 
     }
