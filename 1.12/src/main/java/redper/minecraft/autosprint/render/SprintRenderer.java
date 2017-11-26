@@ -45,7 +45,6 @@ public class SprintRenderer extends Gui {
         int color;
 
         if(hexColor.length() != 6) {
-
             color = Color.decode("0xAAFFAA").getRGB();
         }
 

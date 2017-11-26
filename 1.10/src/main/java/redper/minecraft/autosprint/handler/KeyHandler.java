@@ -30,8 +30,10 @@ public class KeyHandler {
         config = AutoSprintMod.getInstance().getConfig();
         ConfigCategory cc = config.getCategory(Configuration.CATEGORY_CLIENT);
 
-        sprintProperty = cc.get("isSprintToggled");
-        toggled = sprintProperty.getBoolean();
+        if(cc.get("doRememberSprint").getBoolean()) {
+            sprintProperty = cc.get("isSprintToggled");
+            toggled = sprintProperty.getBoolean();
+        }
 
         toggleSprintKey = new KeyBinding("key.autosprint.toggle", Keyboard.KEY_R, "key.categories.movement");
         ClientRegistry.registerKeyBinding(toggleSprintKey);

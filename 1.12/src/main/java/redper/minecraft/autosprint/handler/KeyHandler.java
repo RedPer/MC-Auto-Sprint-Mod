@@ -27,8 +27,6 @@ public class KeyHandler {
     @SideOnly(Side.CLIENT)
     private KeyHandler() {
 
-
-
         config = AutoSprintMod.getInstance().getConfig();
         ConfigCategory cc = config.getCategory(Configuration.CATEGORY_CLIENT);
 

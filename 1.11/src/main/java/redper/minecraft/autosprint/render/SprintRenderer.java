@@ -1,6 +1,8 @@
 package redper.minecraft.autosprint.render;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.ScaledResolution;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.config.ConfigCategory;
 import net.minecraftforge.common.config.Configuration;
@@ -11,7 +13,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import redper.minecraft.autosprint.AutoSprintMod;
 import redper.minecraft.autosprint.handler.KeyHandler;
 
-public class SprintRenderer {
+import java.awt.*;
+
+public class SprintRenderer extends Gui {
 
     private static SprintRenderer instance = new SprintRenderer();
 
@@ -41,22 +45,27 @@ public class SprintRenderer {
         int color;
 
         if(hexColor.length() != 6) {
-            color = Integer.parseInt("aaffaa", 16);
+            color = Color.decode("0xAAFFAA").getRGB();
         }
 
         else {
 
             try {
-                color = Integer.parseInt(hexColor, 16);
-            }
-
-            catch (NumberFormatException e) {
-                color = Integer.parseInt("aaffaa", 16);
+                color = Color.decode("0x" + hexColor).getRGB();
+            } catch (NumberFormatException e) {
+                color = Color.decode("0xAAFFAA").getRGB();
             }
 
         }
 
-        mc.fontRendererObj.drawString("Sprint [Toggled]", 5, 5, color);
+        String s = "Sprint [Toggled]";
+
+        Property backgroundProperty = configCategory.get("useTextBgr");
+        Property backgroundColorProperty = configCategory.get("backgroundColor");
+
+        int backgroundColorWA = Color.decode("0x" + backgroundColorProperty.getString()).getRGB();
+        int backgroundColor = (backgroundColorWA & 0x00ffffff) | (50 << 24);
+        RenderUtils.renderString(s, color, backgroundColor, 5, 5, backgroundProperty.getBoolean());
 
     }
 
