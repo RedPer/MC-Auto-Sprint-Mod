@@ -1,0 +1,8 @@
+key.autosprint.toggle=Przełącz sprint
+
+config.configgui.title=Konfiguracja Auto Sprint Moda
+
+config.client.textcolor=Kolor Tekstu
+config.client.remembersprint=Pamiętaj Sprint
+config.client.textbackground=Tło pod Tekstem
+config.client.backroundcolor=Kolor Tła
