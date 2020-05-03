@@ -1,0 +1,16 @@
+[
+{
+  "modid": "redperautosprintmod",
+  "name": "AutoSprint",
+  "description": "A mod that sprints for you.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["RedPer"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
