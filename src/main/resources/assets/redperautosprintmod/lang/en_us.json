@@ -1,0 +1,8 @@
+{
+  "keybind.toggleAutoSprint": "Toggle AutoSprint",
+  "gui.autosprintconfig.title": "AutoSprint Config",
+  "gui.autosprintconfig.openConfigFile": "Open config file",
+  "gui.autosprintconfig.openConfigDir": "Open config directory",
+  "gui.autosprintconfig.text1": "Sorry, because new Forge versions don't support Config GUIs (yet),",
+  "gui.autosprintconfig.text2": "you'll have to manually edit the config file with a text editor like Notepad."
+}
