@@ -115,7 +115,7 @@ public class IndicatorRenderer extends Gui {
                 break;
             case "Top left":
             default:
-                indicatorXPos = offsetX;
+                indicatorDXPos = indicatorXPos = offsetX;
                 indicatorYPos = offsetY;
         }
     }
