@@ -1,4 +1,4 @@
-package redper.minecraft.autosprint114;
+package redper.minecraft.autosprint115;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;

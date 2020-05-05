@@ -1,4 +1,4 @@
-package redper.minecraft.autosprint114;
+package redper.minecraft.autosprint115;
 
 import net.minecraft.client.MainWindow;
 import net.minecraft.client.Minecraft;
@@ -36,7 +36,7 @@ public class IndicatorRenderer extends AbstractGui {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onConfigChange);
     }
 
-    private void onConfigChange(ModConfig.ConfigReloading event) {
+    private void onConfigChange(ModConfig.Reloading event) {
         readConfig();
     }
 
@@ -78,7 +78,7 @@ public class IndicatorRenderer extends AbstractGui {
         int offsetX = config.indicatorOffsetX.get();
         int offsetY = config.indicatorOffsetY.get();
         String offsetAnchor = config.indicatorOffsetAnchor.get();
-        MainWindow mw = mc.mainWindow;
+        MainWindow mw = mc.getMainWindow();
         switch (offsetAnchor.toLowerCase()) {
             case "top right":
                 indicatorYPos = offsetY;
