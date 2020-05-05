@@ -72,27 +72,27 @@ public class AutoSprint {
         prop.setLanguageKey("config.renderIndicatorBackground");
         prop.setShowInGui(true);
 
-        prop = config.get(Configuration.CATEGORY_CLIENT, "indicatorText", "AutoSprint Enabled", "The text that will be shown on the indicator when the mod is enabled");
+        prop = config.get(Configuration.CATEGORY_CLIENT, "indicatorText", "AutoSprint Enabled", "The text that will be shown on the indicator when the mod is enabled.");
         prop.setLanguageKey("config.indicatorText");
         prop.setShowInGui(true);
 
-        prop = config.get(Configuration.CATEGORY_CLIENT, "indicatorDisabledText", "AutoSprint Disabled", "The text that will be shown on the indicator when the mod is disabled");
+        prop = config.get(Configuration.CATEGORY_CLIENT, "indicatorDisabledText", "AutoSprint Disabled", "The text that will be shown on the indicator when the mod is disabled.");
         prop.setLanguageKey("config.indicatorDisabledText");
         prop.setShowInGui(true);
 
-        prop = config.get(Configuration.CATEGORY_CLIENT, "indicatorTextColor", "ffffffff", "Color of the text on the indicator when the mod is enabled (stored as a hex value)");
+        prop = config.get(Configuration.CATEGORY_CLIENT, "indicatorTextColor", "ffffffff", "Color of the text on the indicator when the mod is enabled (stored as a hex value).");
         prop.setLanguageKey("config.indicatorTextColor");
         prop.setShowInGui(true);
 
-        prop = config.get(Configuration.CATEGORY_CLIENT, "indicatorDisabledTextColor", "ff0000ff", "Color of the text on the indicator when the mod is disabled (stored as a hex value)");
+        prop = config.get(Configuration.CATEGORY_CLIENT, "indicatorDisabledTextColor", "ff0000ff", "Color of the text on the indicator when the mod is disabled (stored as a hex value).");
         prop.setLanguageKey("config.indicatorDisabledTextColor");
         prop.setShowInGui(true);
 
-        prop = config.get(Configuration.CATEGORY_CLIENT, "indicatorBackgroundColor", "17233150", "Color of the indicator background (stored as a hex value)");
+        prop = config.get(Configuration.CATEGORY_CLIENT, "indicatorBackgroundColor", "17233150", "Color of the indicator background (stored as a hex value).");
         prop.setLanguageKey("config.indicatorBackgroundColor");
         prop.setShowInGui(true);
 
-        prop = config.get(Configuration.CATEGORY_CLIENT, "indicatorOffsetAnchor", "Top left", "Specifies on which side of the screen the indicator displays", new String[] {"Top left", "Top right", "Bottom left", "Bottom right"});
+        prop = config.get(Configuration.CATEGORY_CLIENT, "indicatorOffsetAnchor", "Top left", "Specifies on which side of the screen the indicator displays.", new String[] {"Top left", "Top right", "Bottom left", "Bottom right"});
         prop.setLanguageKey("config.indicatorOffsetAnchor");
         prop.setShowInGui(true);
 
