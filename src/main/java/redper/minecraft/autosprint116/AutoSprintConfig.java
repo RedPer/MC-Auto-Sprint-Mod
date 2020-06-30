@@ -1,4 +1,4 @@
-package redper.minecraft.autosprint115;
+package redper.minecraft.autosprint116;
 
 import com.electronwill.nightconfig.core.file.FileConfig;
 import net.minecraftforge.common.ForgeConfigSpec;

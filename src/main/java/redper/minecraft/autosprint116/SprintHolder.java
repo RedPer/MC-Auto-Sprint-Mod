@@ -1,11 +1,11 @@
-package redper.minecraft.autosprint115;
+package redper.minecraft.autosprint116;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.util.InputMappings;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import org.lwjgl.glfw.GLFW;
+import redper.minecraft.autosprint116.AutoSprint;
 
 public class SprintHolder {
 

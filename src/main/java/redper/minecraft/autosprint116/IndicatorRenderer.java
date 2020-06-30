@@ -1,5 +1,6 @@
-package redper.minecraft.autosprint115;
+package redper.minecraft.autosprint116;
 
+import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.MainWindow;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.AbstractGui;
@@ -7,6 +8,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import redper.minecraft.autosprint116.AutoSprint;
 
 import java.awt.*;
 
@@ -52,7 +54,7 @@ public class IndicatorRenderer extends AbstractGui {
             if(renderIndicatorBackground) {
                 int height = mc.fontRenderer.FONT_HEIGHT;
                 int width = mc.fontRenderer.getStringWidth(text);
-                fill(posX - 1, posY - 1, posX + width + 1, posY + height + 1, indicatorBackgroundColor);
+                fill(new MatrixStack(), posX - 1, posY - 1, posX + width + 1, posY + height + 1, indicatorBackgroundColor);
             }
 
             drawString(mc.fontRenderer, text, posX, posY, color);
