@@ -39,6 +39,7 @@ public class IndicatorRenderer extends AbstractGui {
     }
 
     private void onConfigChange(ModConfig.Reloading event) {
+        System.out.println("Reloading config");
         readConfig();
     }
 
@@ -54,10 +55,10 @@ public class IndicatorRenderer extends AbstractGui {
             if(renderIndicatorBackground) {
                 int height = mc.fontRenderer.FONT_HEIGHT;
                 int width = mc.fontRenderer.getStringWidth(text);
-                fill(new MatrixStack(), posX - 1, posY - 1, posX + width + 1, posY + height + 1, indicatorBackgroundColor);
+                func_238467_a_(new MatrixStack(), posX - 1, posY - 1, posX + width + 1, posY + height + 1, indicatorBackgroundColor);
             }
 
-            drawString(mc.fontRenderer, text, posX, posY, color);
+            func_238476_c_(new MatrixStack(), mc.fontRenderer, text, posX, posY, color);
         }
     }
 
